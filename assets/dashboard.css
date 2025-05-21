@@ -1,0 +1,588 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+/* Root Variable */
+:root {
+    --color-primary: #7380ec;
+    --color-danger: #ff7782;
+    --color-success: #41f1b6;
+    --color-warning: #ffbb55;
+    --color-white: #fff;
+    --color-info-dark: #7d8da1;
+    --color-info-light: #dce1eb;
+    --color-dark: #363949;
+    --color-light: rgba(132, 139, 200, 0.18);
+    --color-primary-variant: #111e88;
+    --color-dark-variant: #677483;
+    --color-background: #f6f6f9;
+
+    --card-border-radius: 2rem;
+    --border-radius-1: 0.4rem;
+    --border-radius-2: 0.8rem;
+    --border-radius-3: 1.2rem;
+
+    --card-padding: 1.8rem;
+    --padding-1: 1.2rem;
+
+    --box-shadow: 0 2rem 3rem var(--color-light)
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    appearance: none;
+    border: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 14px;
+}
+
+body{
+    /* width: 100px; */
+    height: 100vh;
+    font-family: poppins, sans-serif;
+    font-size: 0.88rem;
+    background: var(--color-background);
+    user-select: none;
+    overflow-x: hidden;
+    color: var(--color-dark);
+   
+}
+.container{
+    display: grid;
+    width: 96%;
+    margin: 0 auto;
+    gap: 1.8rem;
+    grid-template-columns: 14rem auto 23rem;
+     /* Extra */
+     /* display: grid; */
+     /* grid-template-columns: 14rem auto 23rem; /* Sidebar, main content, right section */
+     /* gap: 1.8rem; /* Add spacing between columns */
+     /* width: 96%; */
+     /* margin: 0 auto; */
+}
+
+a{
+    color: var(--color-dark);
+}
+
+img{
+    display: block;
+    width: 100%;
+}
+
+h1{
+    font-weight: 800;
+    font-size: 1.8rem;
+}
+h2{
+    font-size: 1.4rem;
+}
+h3{
+    font-size: 0.87rem;
+}
+h4{
+    font-size: 0.8rem;
+}
+h5{
+    font-size: 0.77rem;
+}
+small{
+    font-size: 0.75rem;
+}
+
+.profile-photo{
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.text-muted{
+    color: var(--color-info-dark);
+}
+p{
+    color: var(--color-dark-variant);
+}
+b{
+    color: var(--color-dark);
+}
+.primary{
+    color: var(--color-primary);
+}
+.danger{
+    color: var(--color-danger);
+}
+.success{
+    color: var(--color-success);
+}
+.warning{
+    color: var(--color-warning);
+}
+
+aside {
+    height: 100vh;
+    /* Extra */
+    /* grid-column: 1; */
+    /* extra chatgpt generated code */
+    position: fixed; /* Ensure it stays in place */
+    /* left: -100%; Default position */
+    /* top: 0; */
+    width: 14rem;
+    padding-right: 1rem;
+    z-index: 3;
+    box-shadow: 1rem 3rem 4rem var(--color-light);
+    padding-right: var(--color-light);
+    display: block;
+    background: var(--color-white);
+    /* transition: transform 0.3s ease; Add transition for smooth animation */
+    /* transform: translateX(0); Default position */
+    animation: showMenu 300ms ease;
+}
+
+/* aside.show { */
+    /* transform: translateX(0); Slide sidebar into view */
+/* } */
+
+
+
+
+
+/* Extra chatgpr code */
+/* aside.hidden {
+    transform: translateX(-100%);
+} */
+
+@keyframes showMenu {
+    to{
+        left: 0;
+    }
+    
+}
+
+aside .top{
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1.4rem;
+}
+
+aside .logo {
+    display: flex;
+    gap: 0.8rem;
+}
+
+aside .logo img {
+    width: 2rem;
+    height: 2rem;
+}
+
+aside .close {
+    display:block;
+}
+
+/* **************************************** SideBar *********************************************************/
+aside .sidebar {
+    background: white;
+    display: flex;
+    
+    flex-direction: column;
+    height: 86vh;
+    position: relative;
+    top: 3rem;
+}
+
+
+
+/* ...existing code... */
+/*  */
+/* ...existing code... */
+
+aside h3{
+    font-weight: 500;
+}
+
+aside .sidebar a {
+    display: flex;
+    color: var(--color-info-dark);
+    margin-left: 2rem;
+    gap: 1rem;
+    align-items: center;
+    position: relative;
+    height: 3.7rem;
+    transition: all 300ms ease;
+}
+
+aside .sidebar a span {
+    font-size: 1.6rem;
+    transition: all 300ms ease;
+}
+
+aside .sidebar a:last-child {
+    position: absolute;
+    bottom: 2rem;
+    width: 100%;
+}
+
+aside .sidebar a.active {
+    background: var(--color-light);
+    color: var(--color-primary);
+    margin-left: 0;
+}
+
+aside .sidebar a.active:before{
+    content: "";
+    width: 6px;
+    height: 100%;
+    background: var(--color-primary);
+
+}
+
+aside .sidebar a.active span{
+    color: var(--color-primary);
+    margin-left: calc(1rem - 3px);
+}
+
+aside .sidebar a:hover {
+    color: var(--color-primary);
+}
+
+aside .sidebar a:hover span {
+    margin-left: 1rem;
+}
+
+aside .sidebar .notification-count {
+    background: var(--color-danger);
+    color: var(--color-white);
+    padding: 2px 10px;
+    font-size: 11px;
+    border-radius: var(--border-radius-1);
+}
+
+/* ************************************** Main ***************************************** */
+
+main {
+    margin-top: 1.4rem;
+    grid-column: 2;
+
+    /* margin-left: 14rem; 
+    margin-right: 23rem; */
+}
+
+main .date{
+    display: inline-block;
+    background: var(--color-light);
+    border-radius: var(--border-radius-1);
+    margin-top: 1rem;
+    padding: 0.5rem 1.6rem;
+}
+
+main .date input[type="date"] {
+    background: transparent;
+    color: var(--color-dark);
+}
+
+main .weather-insights {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.6rem;
+}
+
+main .weather-insights > div {
+    background: var(--color-white);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    margin-top: 1rem;
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+}
+main .weather-insights > div:hover {
+    box-shadow: none;
+}
+
+main .weather-insights .live-weather-card h1.city-name {
+    color: var(--color-dark);
+}
+
+main .weather-insights > div span {
+    background-color: transparent;
+    padding: 0.5rem;
+    padding-left: 5rem; /*moving span icon to occupy space */
+    border-radius: 50%;
+    color: var(--color-warning);
+    font-size: 6rem;
+}
+
+main .weather-insights > div .middle{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+main .weather-insights .live-weather-card .middle .left h1{
+    font-size: 3rem;
+    color: var(--color-primary);
+}
+
+main .weather-insights > div .weather-details {
+    display: flex;
+    justify-content:space-between;
+    margin-right:1rem;
+    gap: 1rem;
+    margin-top:1rem;
+    
+}
+
+main .weather-insights > div .weather-details p{
+    color: var(--color-dark);
+    font-size: 1rem;
+    font-weight: bolder;
+
+}
+main .weather-insights > div .weather-details h4{
+    color: var(--color-dark-variant);
+    font-size: 0.8rem;
+    font-weight: bold;
+    
+}
+
+/* ******************************************* Temperature Forecast ************************************ */
+main .weather-forecast{
+    margin-top: 2rem;
+}
+
+main .weather-forecast h2{
+    margin-bottom: 0.8rem;
+}
+
+main .weather-forecast table{
+    background: var(--color-white);
+    width: 100%;
+    /* max-width: 400px; */
+    border-radius: var(--card-border-radius);
+    padding: var(--card-padding);
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+    margin-bottom: 2rem;
+}
+
+main .weather-forecast table:hover{
+    box-shadow: none;
+}
+main table tbody td {
+    height: 2.8rem;
+    border-bottom: 1px solid var(--color-light);
+    color: var(--color-dark-variant);
+}
+
+main table tbody tr:last-child td{
+    border:none
+}
+
+
+/* ******************************* Map section ********************************** */
+
+
+/* style.css */
+#map {
+    height: 100%;
+    min-height: 400px;
+    width: 100%;
+}
+#map-section, main {
+    height: 100%;
+}
+/* ******************************* Right Styling ********************************** */
+.right{
+    margin-top: 1.4rem;
+    margin-left: auto; 
+    padding-right: 1rem;
+    display: flex; 
+    flex-direction: column; 
+    gap: 1rem; 
+    grid-column: 3;
+
+
+
+}
+.right .top {
+    display: flex;
+    justify-content: end;
+    gap: 2rem;
+    margin-top: 1rem;
+
+}
+
+.right .top .bottom {
+    display: none;
+}
+
+.right .theme-toggler {
+    background: var(--color-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 1.6rem;
+    width: 4.2rem;
+    cursor: pointer;
+    border-radius: var(--border-radius-1);
+}
+
+.right .theme-toggler span{
+    font-family: 1.3rem;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.right .theme-toggler span.active {
+    background:var(--color-primary) ;
+    color: white;
+    border-radius: var(--border-radius-2);
+}
+
+.right .top .profile {
+    display: flex;
+    gap: 2rem;
+    padding-right: 2rem;
+    text-align: right;
+}
+
+/* ************************** Notifications ******************************** */
+
+.right .recent-notifications {
+    margin-top: 1rem;
+}
+
+.right .recent-notifications h2 {
+    margin-bottom: 0.8rem;
+}
+
+.right .recent-notifications .notifications {
+    background: var(--color-white);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+}
+
+.right .recent-notifications .notifications:hover{
+    box-shadow: none;
+}
+
+.right .recent-notifications .notifications .notification {
+    display: grid;
+    grid-template-columns: 2.6rem auto;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+
+/* ***************************** Favourite Places ********************************** */
+
+.right .favourite-places {
+    margin-top: 2rem;
+}
+
+.right .favourite-places h2{
+    margin-bottom: 0.8rem;
+}
+
+.right .favourite-places .favourite-place{
+    background: var(--color-white);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.7rem;
+    padding: 1.4rem var(--card-padding);
+    border-radius: var(--border-radius-3);
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+}
+
+.right .favourite-places .favourite-place:hover {
+    box-shadow: none;
+}
+.right .favourite-places .favourite-place .middle{
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin: 0;
+    width: 100%;
+}
+
+.right .favourite-places .favourite-place .icon {
+    padding: 0.6rem;
+    color: var(--color-white);
+    border-radius: 50%;
+    background: var(--color-primary);
+    display: flex;
+}
+
+.right .favourite-places .add {
+    background-color: transparent;
+    border: 2px dashed var(--color-primary);
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.right .favourite-places .add div {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.right .favourite-places .add div h3 {
+    font-weight: 600;
+}
+
+/* .right .favourite-place .add-favourite-place */
+
+/* Extra */
+.live-weather-card .middle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.live-weather-card .left input[type="text"] {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 1rem;
+    outline: none;
+    transition: border 0.2s;
+    width: 180px;
+}
+
+.live-weather-card .left input[type="text"]:focus {
+    border: 1.5px solid var(--color-primary, #007bff);
+}
+
+.live-weather-card #temp-icon button {
+    padding: 0.5rem 1.5rem;
+    background: var(--color-primary, #007bff);
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.live-weather-card .temp-icon button:hover {
+    background: var(--color-primary-dark, #0056b3);
+}
+
+

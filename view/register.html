@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Form</title>
+  <link rel="stylesheet" href="../assets/register.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css">
+   <link rel="stylesheet" href="../assets/register.css">
+   <link rel="icon" type="image/x-icon" href="../assets/images/ashiqur_saron.png">
+</head>
+<body>
+  
+  <div class="container">
+    <!-- Title section -->
+    <div class="title">Registration</div>
+    <div class="content">
+      <!-- Registration form -->
+      <form id="registrationForm" action="" method="post" onsubmit="return validateForm();" >
+        <div class="user-details">
+          <!-- First Name -->
+          <div class="input-box">
+            <span class="details">First Name</span>
+            <input type="text" id="firstName" name="firstName" placeholder="Enter your first name" >
+            <span class="error-message" id="firstNameError"></span>
+          </div>
+          <!-- Last Name -->
+          <div class="input-box">
+            <span class="details">Last Name</span>
+            <input type="text" id="lastName" name="lastName" placeholder="Enter your last name" >
+            <span class="error-message" id="lastNameError"></span>
+          </div>
+          <!-- Username -->
+          <div class="input-box">
+            <span class="details">Username</span>
+            <input type="text" id="username" name="username" placeholder="Enter your username" >
+            <span class="error-message" id="usernameError"></span>
+          </div>
+          <!-- Email -->
+          <div class="input-box">
+            <span class="details">Email</span>
+            <input type="text" id="email" name="email" placeholder="Enter your email" >
+            <span class="error-message" id="emailError"></span>
+          </div>
+          <!-- Phone Number -->
+          <div class="input-box">
+            <span class="details">Phone Number</span>
+            <input type="text" id="phone" name="phone" placeholder="Enter your number" >
+            <span class="error-message" id="phoneError"></span>
+          </div>
+          <!-- Date of Birth -->
+          <div class="input-box">
+            <span class="details">Date of Birth</span>
+            <input type="date" id="dob" name="dob" >
+            <span class="error-message" id="dobError"></span>
+          </div>
+          <!-- Password -->
+          <div class="input-box">
+            <span class="details">Password</span>
+            <input type="password" id="password" name="password" placeholder="Enter your password" >
+            <span class="error-message" id="passwordError"></span>
+          </div>
+          <!-- Confirm Password -->
+          <div class="input-box">
+            <span class="details">Confirm Password</span>
+            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" >
+            <span class="error-message" id="confirmPasswordError"></span>
+          </div>
+          <!-- Profession -->
+           <!-- style="width:100%;" -->
+          <div class="input-box" >
+            <span class="details">Profession</span>
+            <select id="profession" name="profession" >
+              <option value="">Select Profession</option>
+              <option value="student">Student</option>
+              <option value="teacher">Teacher</option>
+              <option value="general">General</option>
+            </select>
+            <span class="error-message" id="professionError"></span>
+          </div>
+        </div>
+        <div class="gender-details">
+          <!-- Radio buttons for gender selection -->
+          <input type="radio" name="gender" id="dot-1">
+          <input type="radio" name="gender" id="dot-2">
+          <input type="radio" name="gender" id="dot-3">
+          <span class="gender-title">Gender</span>
+          <div class="category">
+            <!-- Label for Male -->
+            <label for="dot-1">
+              <span class="dot one"></span>
+              <span class="gender">Male</span>
+            </label>
+            <!-- Label for Female -->
+            <label for="dot-2">
+              <span class="dot two"></span>
+              <span class="gender">Female</span>
+            </label>
+            <!-- Label for Prefer not to say -->
+            <label for="dot-3">
+              <span class="dot three"></span>
+              <span class="gender">Prefer not to say</span>
+            </label>
+          </div>
+          <span class="error-message" id="genderError"></span>
+
+        </div>
+        
+        <!-- Submit button -->
+        <div class="button">
+          <input type="submit" value="Register">
+        </div>
+      </form>
+    </div>
+    <!-- Go back to login link -->
+    <div class="back-to-login">
+      <p class="login_switch">
+        Already have an account?
+        <a href="login.html" class="login_signup-link">Back to Login</a>
+      </p>
+    </div>
+  </div>
+  <script src="../assets/register.js"></script>
+</body>
+</html>

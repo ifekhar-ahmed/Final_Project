@@ -1,0 +1,287 @@
+/* Importing Google Fonts - Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --first-color: hsl(208, 92%, 54%);
+  /* --first-color: hsl(208, 92%, 54%); */
+  --first-color-alt: hsl(208, 88%, 50%);
+  /* --first-color-alt: --white-color; */
+  --error-color: #e74c3c;
+  --input-border: #ccc;
+  --input-focus: var(--first-color);
+  --input-error: var(--error-color);
+  --container-bg: var(--white-color, #fff);
+  --title-color: hsl(220, 68%, 4%);
+  --white-color: hsl(0, 0%, 100%);
+  --text-color: hsl(220, 15%, 66%);
+  --body-color: hsl(0, 0%, 100%);
+  --container-color: hsl(220, 50%, 97%);
+
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "Montserrat", system-ui;
+  --big-font-size: 0.8rem;
+  --normal-font-size: .938rem;
+  --small-font-size: .813rem;
+  --tiny-font-size: .688rem;
+
+  /*========== Font weight ==========*/
+  --font-regular: 300;
+  --font-medium: 400;
+  --font-semi-bold: 500;
+
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background: linear-gradient(135deg, var(--first-color), var(--first-color-alt));
+  background-image: url('./images/cat.jpg');
+  background-size: cover;         /* Make image cover the viewport */
+  background-position: center;    
+  background-repeat: no-repeat;  
+ } 
+
+
+/* Container styling */
+.container {
+  max-width: 1200px;
+  width: 100%;
+  /* Use a semi-transparent background with a root color */
+  backdrop-filter: blur(5px);
+  background-color: hsla(208, 92%, 54%, 0.10); /* 0.15 = 15% opacity, adjust as needed */
+  padding: 25px 30px;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Title styling */
+.container .title {
+  font-size: 25px;
+  font-weight: 500;
+  margin-top: 10px;
+  color: var(--white-color);
+  position: relative;
+}
+
+.container .title::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 30px;
+  border-radius: 5px;
+  background: linear-gradient(135deg, var(--first-color), var(--first-color-alt));
+}
+
+.content form .user-details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px 0 12px 0;
+}
+
+/* 3 columns for input fields */
+form .user-details .input-box {
+  margin-bottom: 15px;
+  width: calc(100% / 3 - 20px);
+}
+
+form .input-box span.details {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+/* Input and select styling */
+.user-details .input-box input,
+.user-details .input-box select {
+  height: 45px;
+  width: 100%;
+  outline: none;
+  font-size: 16px;
+  border-radius: 10px;
+  padding-left: 15px;
+  border: 3px solid var(--input-border); /* <-- Use input-border, not white */
+  transition: border-color 0.3s ease;
+  background: none;
+  color: var(--title-color);
+  font-family: var(--body-font, 'Montserrat', system-ui);
+  box-sizing: border-box;
+}
+
+/* Make select look like input */
+.user-details .input-box select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: none;
+}
+
+/* Focused input/select: border color only */
+.user-details .input-box input:focus,
+.user-details .input-box select:focus {
+  border-color: var(--first-color);
+}
+
+/* Error state: border color only */
+.input-box input.error,
+.input-box select.error {
+  border-color: var(--error-color) !important;
+}
+
+/* Remove background color change for error/focus */
+.user-details .input-box input:focus,
+.user-details .input-box select:focus,
+.input-box input.error,
+.input-box select.error {
+  background: none !important;
+}
+
+.error-message {
+  color: #e74c3c;
+  font-size: 13px;
+  margin-top: 2px;
+  display: block;
+  min-height: 16px;
+}
+
+form .gender-details .gender-title {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+form .category {
+  display: flex;
+  width: 80%;
+  margin: 14px 0;
+  justify-content: space-between;
+}
+
+form .category label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+form .category label .dot {
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  margin-right: 10px;
+  background: #d9d9d9;
+  border: 5px solid transparent;
+  transition: all 0.3s ease;
+}
+
+#dot-1:checked~.category label .one,
+#dot-2:checked~.category label .two,
+#dot-3:checked~.category label .three {
+  background: var(--input-focus);
+  border-color: var(--white-color);
+}
+
+/* Fix radio checked dot color */
+form input[type="radio"]:checked + .dot {
+  background: var(--input-focus);
+  border-color: var(--input-border);
+}
+
+form input[type="radio"] {
+  display: none;
+}
+
+form .button {
+  height: 45px;
+  margin: 10px 0
+}
+
+form .button input {
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  /* background: linear-gradient(135deg, #71b7e6, #9b59b6); */
+  background: var(--first-color);
+}
+
+form .button input:hover {
+  background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+}
+
+/* Back to login link styling */
+
+.login_switch {
+  text-align: center;
+  font-size: var(--small-font-size);
+}
+
+.login_signup-link {
+  color: var(--first-color);
+  font-weight: var(--font-semi-bold);
+  text-decoration: underline;
+  cursor: pointer;
+  transition: color .4s;
+}
+.login_signup-link:hover {
+  color: var(--white-color);
+}
+
+
+/* Responsive media query code for mobile devices */
+@media(max-width: 584px) {
+  .container {
+    max-width: 100%;
+  }
+
+  form .user-details .input-box {
+    margin-bottom: 15px;
+    width: 100%;
+  }
+
+  form .category {
+    width: 100%;
+  }
+
+  .content form .user-details {
+    max-height: 300px;
+    overflow-y: scroll;
+  }
+
+  .user-details::-webkit-scrollbar {
+    width: 5px;
+  }
+}
+
+/* Responsive media query code for mobile devices */
+@media(max-width: 459px) {
+  .container .content .category {
+    flex-direction: column;
+  }
+}
